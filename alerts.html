@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Επικίνδυνα καιρικά φαινόμενα</title>
+    <style>
+        #map-canvas { width: auto; height: 900px;}
+    </style>
+</head>
+<body>
+<div id="map-canvas"></div>
+<link media="screen" type="text/css" rel="stylesheet" href="http://cdn.aerisjs.com/aeris-interactive/assets/css/default/style.css">
+<link media="screen" type="text/css" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.css">
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.js"></script>
+<script type="text/javascript" src="http://cdn.aerisjs.com/aeris-interactive/aim-leaflet.js"></script>
+
+<script type="text/javascript">
+    var aerisMapBuilder = new aeris.interactive.MapAppBuilder({
+            apiId:'wgE96YE3scTQLKjnqiMsv',
+            apiSecret:'tlyy22v5uBRBcm8lWeP0Y6ZISPLDVKGWXTJH9kYb',
+            el: '#map-canvas',
+            modules: {
+                layers: {
+                    objects: [
+                        {
+                            type: 'Advisories',
+                            selected: true,
+                            },
+                        {
+                            type: 'SatelliteGlobal',
+                            label: 'Global Satellite'
+                        }
+                    ]
+                    },      
+            map: {
+                zoom: 4,
+                center: [44.97, -93.26],
+                scrollZoom: false
+                },
+            geosearch: {
+                geolocate: false
+                },
+            localWeather: {
+                showOnInit: false
+                },
+            mapControls: {
+                expandOnInit: false
+            }
+        }
+        });
+    aerisMapBuilder.start();
+</script>
+</body>
+</html>

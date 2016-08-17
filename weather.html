@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Πρόβλεψη Καιρού</title>
+
+    <style>
+        #map-canvas { width: auto; height: 900px;}
+    </style>
+</head>
+<body>
+<div id="map-canvas"></div>
+
+<link media="screen" type="text/css" rel="stylesheet" href="http://cdn.aerisjs.com/aeris-interactive/assets/css/default/style.css">
+<link media="screen" type="text/css" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.css">
+<link media="screen" type="text/css" rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.js"></script>
+<script type="text/javascript" src="http://cdn.aerisjs.com/aeris-interactive/aim.js"></script>
+
+<script type="text/javascript">
+    var aerisMapBuilder = new aeris.interactive.MapAppBuilder({
+        apiId:'7yfh0mmZNda2MWCA7CmW2',
+        apiSecret:'7jKOA70a3Ni8wD21oo2qwh9PUY8RYLrsC9OTLAB8',
+        el: '#map-canvas',
+        modules: {
+            map: {
+                zoom: 9,
+                center: [37.6436,22.4918],
+                scrollZoom: true,
+            },
+            geosearch: {
+                geolocate: true
+            },
+            localWeather: {
+                showOnInit: true
+            },
+            mapControls: {
+                expandOnInit: false,
+                groups: ['Points']
+            },
+           layers: {
+                objects: [
+                    {
+                        type: 'SatelliteGlobal',
+                        selected: true,
+                        opacity: .90
+                        
+                    }
+                    
+                ]
+            } 
+        }
+    });
+    aerisMapBuilder.start();
+</script>
+
+
+
+</body>
+</html>
